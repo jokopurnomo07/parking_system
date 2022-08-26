@@ -1,5 +1,6 @@
 @extends('layouts.dashboard')
 @section('title', 'Laporan')
+@section('laporan', 'active')
 
 @section('content')
 
@@ -13,12 +14,18 @@
             <div class="card-header">
 
                 <div class="row">
-                    <div class="col-2 d-flex justify-content-start align-items-start">
-                        <input type="text" name="daterange" class="form-control daterange" />
-                        <input type="hidden" class="startDate" />
-                        <input type="hidden" class="endDate" />
+                    <div class="col-3 row">
+                        <div class="col-auto">
+                            <input type="text" name="daterange" class="form-control daterange w-100" />
+                            <input type="hidden" class="startDate" />
+                            <input type="hidden" class="endDate" />
+                        </div>
+                        <div class="col-auto">
+                            <button type="reset" class="btn btn-danger" id="reset">Reset</button>
+                        </div>
+                        
                     </div>
-                    <div class="col-10 d-flex justify-content-end align-items-end">
+                    <div class="col-9 d-flex justify-content-end align-items-end">
                         <a href="{{ route('dashboard.laporan.export') }}">
                             <button class="btn btn-primary">Export</button>
                         </a>
@@ -72,7 +79,7 @@
                     url:"{{ route('dashboard.laporan') }}",
                     type: "GET",
                     'data': function(data){
- 
+
                         let startDate = $('.startDate').val();
                         let endDate = $('.endDate').val();
 
@@ -105,6 +112,11 @@
                     },
                     {
                         data: 'parkir_keluar.tarif',
+                        render: function(data) {
+                            let getDataUang = parseInt(data).toLocaleString()
+                            let changeComma = getDataUang.replace(',', '.')
+                            return 'Rp. ' + changeComma
+                        }
                     },
                 ]
             });
@@ -120,6 +132,12 @@
                     datatable.ajax.reload()
                 }
             );
+
+            $('#reset').on('click', function(){
+                startDate = $('.startDate').val(null);
+                endDate = $('.endDate').val(null);
+                datatable.ajax.reload()
+            })
 
         });
 

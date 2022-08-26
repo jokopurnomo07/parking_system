@@ -55,15 +55,15 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item {{ request()->routeIs('dashboard') ? 'active' : ''}}">
-                            <a href="{{ route('dashboard') }}" class='sidebar-link'>
+                        <li class="sidebar-item @yield('dashboard')">
+                            <a href="{{ auth()->user()->role == 0 ? route('dashboard') : route('dashboard.user') }}" class='sidebar-link'>
                                 <i class="fas fa-tachometer-alt"></i>
                                 <span>{{ auth()->user()->role == 0 ? 'Dashboard' : 'Parkir' }}</span>
                             </a>
                         </li>
 
                         @if( auth()->user()->role == 0 )
-                        <li class="sidebar-item {{ request()->routeIs('dashboard.laporan') ? 'active' : ''}}">
+                        <li class="sidebar-item @yield('laporan')">
                             <a href="{{ route('dashboard.laporan') }}" class='sidebar-link'>
                                 <i class="fas fa-archive"></i>
                                 <span>Laporan</span>

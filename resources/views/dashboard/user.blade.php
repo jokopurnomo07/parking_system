@@ -1,5 +1,6 @@
 @extends('layouts.dashboard')
 @section('title', 'Parkir')
+@section('dashboard', 'active')
 
 @section('content')
 
