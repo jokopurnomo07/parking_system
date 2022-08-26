@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2022 at 08:43 AM
+-- Generation Time: Aug 26, 2022 at 11:12 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -173,7 +173,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@gmail.com', NULL, '$2y$10$GNAyTQqIqTyCzxj1Ob0IouThvi787zCKoLoHQXYP5ycv2cuPDupia', '0', NULL, '2022-08-03 21:04:03', '2022-08-03 21:04:03'),
-(2, 'user', 'user@gmail.com', NULL, '$2y$10$aHU6UyuxOKCLYjrL3da8Ee.8y4r/3RiAegBpOtX.MB.H.cUT8wV.i', '1', NULL, '2022-08-04 00:12:40', '2022-08-04 00:12:40');
+(2, 'petugas parkir', 'petugas_parkir@gmail.com', NULL, '$2y$10$aHU6UyuxOKCLYjrL3da8Ee.8y4r/3RiAegBpOtX.MB.H.cUT8wV.i', '1', NULL, '2022-08-04 00:12:40', '2022-08-04 00:12:40');
 
 --
 -- Indexes for dumped tables
